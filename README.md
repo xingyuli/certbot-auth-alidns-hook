@@ -2,6 +2,7 @@
 
 A hook program that is designed to be used with `cerbot` CLI.
 
+
 # Environment Setup
 
 - [AliDNS Python SDK](https://api.aliyun.com/api-tools/sdk/Alidns?version=2015-01-09&language=python-tea&tab=primer-doc) requires Python 3.7 as a minimum.
@@ -12,6 +13,34 @@ $ pyenv exec python -m venv .venv
 $ source .venv/bin/activate
 $ pip install -r requirements.txt
 ```
+
+
+# Required RAM Permissions
+
+For permission grants, give following permissions to your RAM account are enough:
+```json
+{
+  "Version": "1",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "alidns:DescribeDomainRecordInfo",
+        "alidns:AddDomainRecord",
+        "alidns:UpdateDomainRecord",
+        "alidns:UpdateDomainRecordRemark",
+        "alidns:UpdateDomainRecordsTTL",
+        "alidns:SetDomainRecordStatus",
+        "alidns:DescribeDomainRecords"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+Fine-tune if you want to restrict specific resources. 
+
 
 # Usage
 
